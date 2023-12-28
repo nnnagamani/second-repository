@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages ('dev'){
-      sh '''echo "hello dev"  
+      echo "hello dev"  
     }
     stage ('test'){
-        sh '''echo "hello test"
+        echo "hello test"
     }
     stage ('deploy'){
-        sh '''echo "hello deploy"
+         echo "hello deploy"
     }
 }      
