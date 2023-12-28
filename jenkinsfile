@@ -1,1 +1,10 @@
-
+pipeline{
+    agent any
+    stages{
+        stage('dev'){
+            steps{
+                echo "helo dev team"
+            }
+        }
+    }
+}
