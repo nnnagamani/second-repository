@@ -1,0 +1,47 @@
+pipeline{
+    agent any
+    tools{
+        maven "maven3"
+    }
+    stages{
+        stage('checkout'){
+            steps{
+                
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'mvn clean install' -f mywebapp/pom.xml
+            }
+        }
+        stage('code qvality'){
+            steps{
+                with sonarqubeEnv('sonarqube'){
+                    sh "mvn sonar:sonar -f mywubapp/pom.xml"
+                }
+            }
+        }
+        stage('nexus'){
+            steps{
+                
+            }
+        }
+        stage('slack notification'){
+            steps{
+                
+            }
+        }
+        stage('dev approval'){
+            steps{
+                echo "taking approval for dev manager for qa deployment"
+                timeout(time:7 units:'days')
+            }
+        }
+        stage('qa deploy'){
+            steps{
+                
+            }
+        }
+    }
+    
+}
