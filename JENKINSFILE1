@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nnnagamani/second-repository.git']])
+            }
+        }
+        stage('test'){
+            steps{
+                echo "hello test"
+            }
+        }
+        stage('deploy'){
+            steps{
+                echo "hello deploy"
+            }
+        }
+    }
+    
+}
